@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For HANIA 💜</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -20,38 +19,44 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#e9d5ff,#f3e8ff);
-    overflow:hidden;
+    background:linear-gradient(135deg,#e9d5ff,#d8b4fe);
+    font-family:'Poppins',sans-serif;
 }
 
 .container{
     background:white;
-    padding:50px 40px;
+    padding:55px 45px;
     border-radius:30px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    box-shadow:0 25px 50px rgba(126,34,206,0.2);
     text-align:center;
-    position:relative;
-    z-index:10;
     max-width:420px;
     animation:fadeIn 1.2s ease;
 }
 
 h1{
-    font-size:45px;
-    font-weight:800;
-    color:#7e22ce;
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    font-weight:900;
+    color:#6b21a8;
     letter-spacing:2px;
 }
 
+.nickname{
+    font-size:18px;
+    color:#a855f7;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
 h2{
-    margin-top:10px;
-    color:#9333ea;
+    margin:15px 0 20px 0;
+    color:#7e22ce;
     font-weight:600;
 }
 
 button{
-    padding:14px 30px;
-    margin:15px;
+    padding:14px 32px;
+    margin:10px;
     font-size:18px;
     border:none;
     border-radius:40px;
@@ -66,63 +71,41 @@ button{
 
 #yesBtn:hover{
     transform:scale(1.08);
-    background:#9333ea;
+    background:#7e22ce;
 }
 
 #noBtn{
-    background:#c4b5fd;
-    color:white;
+    background:#ddd6fe;
+    color:#6b21a8;
     position:relative;
 }
 
 #result{
     margin-top:25px;
     opacity:0;
-    transform:scale(0.8);
-    transition:all 0.6s ease;
+    transform:translateY(30px);
+    transition:all 0.7s ease;
 }
 
 #result.show{
     opacity:1;
-    transform:scale(1);
+    transform:translateY(0);
 }
 
-.envelope{
-    background:#f3e8ff;
+.letter{
+    background:#f5f3ff;
     padding:25px;
     border-radius:20px;
-    margin-top:15px;
-    animation:slideUp 1s ease;
+    margin-top:20px;
     color:#4c1d95;
     font-size:15px;
-}
-
-img{
-    width:170px;
-    margin-top:15px;
-}
-
-/* Floating Hearts */
-.heart{
-    position:absolute;
-    font-size:20px;
-    color:#c084fc;
-    animation:floatUp 6s linear infinite;
-}
-
-@keyframes floatUp{
-    0%{transform:translateY(0); opacity:1;}
-    100%{transform:translateY(-800px); opacity:0;}
+    line-height:1.6;
+    box-shadow:0 10px 25px rgba(168,85,247,0.15);
 }
 
 @keyframes fadeIn{
     from{opacity:0;}
     to{opacity:1;}
-}
-
-@keyframes slideUp{
-    from{transform:translateY(40px); opacity:0;}
-    to{transform:translateY(0); opacity:1;}
 }
 </style>
 </head>
@@ -131,42 +114,43 @@ img{
 
 <div class="container">
     <h1>HANIA 💜</h1>
-    <h2>Will you be my Valentine? 💕</h2>
+    <div class="nickname">(My Zuzi 💕)</div>
+    <h2>Will you be my Valentine?</h2>
 
     <button id="yesBtn">Yea Sure 💜</button>
     <button id="noBtn">No 😜</button>
 
     <div id="result">
-        <h2>She Said YESSSS!!! 🥰💜</h2>
-        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+        <h2>You Said YES 🥹💜</h2>
 
-        <div class="envelope">
-            My Beautiful HANIA 💜<br><br>
-            You are the calm in my chaos,
-            the softness in my world,
-            and the lavender in my life. 🌸💜<br><br>
-            I promise to love you,
-            respect you,
-            and choose you —
-            every single day. 💕<br><br>
-            Yours forever,<br>
+        <div class="letter">
+            My Dearest HANIA (My Zuzi) 💜<br><br>
+
+            From the day you came into my life,
+            everything feels softer, calmer, and more beautiful —
+            just like your favorite lavender shade. 🌸💜<br><br>
+
+            You are not just my Valentine,
+            you are my peace,
+            my happiness,
+            and my forever choice.<br><br>
+
+            I promise to stand beside you,
+            support you,
+            and love you more with every passing day. 💕<br><br>
+
+            Forever Yours,<br>
             Abdul Wasay 💜
         </div>
     </div>
 </div>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
-</audio>
-
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const result = document.getElementById("result");
-const music = document.getElementById("bgMusic");
 
-/* No Button Run Away Smooth */
+/* No button move */
 noBtn.addEventListener("mouseover", function() {
     const x = Math.random() * (window.innerWidth - 100);
     const y = Math.random() * (window.innerHeight - 50);
@@ -175,24 +159,10 @@ noBtn.addEventListener("mouseover", function() {
     noBtn.style.top = y + "px";
 });
 
-/* Yes Click */
+/* Yes click */
 yesBtn.addEventListener("click", function() {
     result.classList.add("show");
-    music.play();
 });
-
-/* Floating Hearts Generator */
-function createHeart(){
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="💜";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(Math.random()*20+15)+"px";
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{heart.remove();},6000);
-}
-setInterval(createHeart,400);
 </script>
 
 </body>
